@@ -1,8 +1,9 @@
+
 public class OOPSBannerApp {
 
     public static void main(String[] args) {
 
-        // Store banner lines in array
+        // Directly create array using String.join()
         String[] banner = {
             String.join(" ", "*****", "*****", "*****", "*****"),
             String.join(" ", "*   *", "*   *", "*   *", "*"),
@@ -11,13 +12,9 @@ public class OOPSBannerApp {
             String.join(" ", "*****", "*****", "*", "*****")
         };
 
-        // Loop to print banner
+        // Enhanced for loop
         for (String line : banner) {
             System.out.println(line);
         }
     }
 }
-
-
-    
-
