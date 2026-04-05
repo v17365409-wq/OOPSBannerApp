@@ -3,61 +3,56 @@ import java.util.Map;
 
 public class OOPSBannerApp {
 
-    // Inner class
-    static class CharacterPatternMap {
+    // Function to create pattern map
+    public static Map<Character, String[]> createPatternMap() {
 
-        private Map<Character, String[]> patternMap;
+        Map<Character, String[]> map = new HashMap<>();
 
-        public CharacterPatternMap() {
-            patternMap = new HashMap<>();
+        map.put('O', new String[]{
+            " ***** ",
+            "*     *",
+            "*     *",
+            "*     *",
+            " ***** "
+        });
 
-            // O
-            patternMap.put('O', new String[]{
-                " ***** ",
-                "*     *",
-                "*     *",
-                "*     *",
-                " ***** "
-            });
+        map.put('P', new String[]{
+            "***** ",
+            "*    *",
+            "***** ",
+            "*     ",
+            "*     "
+        });
 
-            // P
-            patternMap.put('P', new String[]{
-                "***** ",
-                "*    *",
-                "***** ",
-                "*     ",
-                "*     "
-            });
+        map.put('S', new String[]{
+            " *****",
+            "*     ",
+            " *****",
+            "     *",
+            "***** "
+        });
 
-            // S
-            patternMap.put('S', new String[]{
-                " *****",
-                "*     ",
-                " *****",
-                "     *",
-                "***** "
-            });
-        }
-
-        public String[] getPattern(char ch) {
-            return patternMap.get(ch);
-        }
+        return map;
     }
 
-    public static void main(String[] args) {
-
-        CharacterPatternMap map = new CharacterPatternMap();
-
-        String text = "OOPS";
+    // Function to render banner
+    public static void printBanner(String text, Map<Character, String[]> map) {
 
         for (int i = 0; i < 5; i++) {
             StringBuilder line = new StringBuilder();
 
             for (char ch : text.toCharArray()) {
-                line.append(map.getPattern(ch)[i]).append("  ");
+                line.append(map.get(ch)[i]).append("  ");
             }
 
             System.out.println(line);
         }
+    }
+
+    public static void main(String[] args) {
+
+        Map<Character, String[]> patternMap = createPatternMap();
+
+        printBanner("OOPS", patternMap);
     }
 }
